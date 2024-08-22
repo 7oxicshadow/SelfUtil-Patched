@@ -5,6 +5,8 @@
 
 #include "selfutil.h"
 #include <filesystem>
+#include <stdio.h>
+#include <string.h>
 
 //
 // //
@@ -16,6 +18,10 @@
 
 // notes :
 // debug needs to be configured as Active x86
+
+#ifdef __unix
+#define fopen_s(pFile,filename,mode) ((*(pFile))=fopen((filename),(mode)))==NULL
+#endif
 
 
 void print_usage()
